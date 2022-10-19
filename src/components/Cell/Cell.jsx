@@ -4,7 +4,7 @@ function Cell({
   value, onClick, id,
 }) {
   return (
-    <button type="button" id={id} className="main-board-cell" onClick={onClick}>
+    <button type="button" id={id} className={`main-board-cell ${value === 'X' ? 'backgroundColor' : ''}`} onClick={onClick}>
       {value}
     </button>
   );
