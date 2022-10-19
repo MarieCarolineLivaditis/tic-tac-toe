@@ -1,5 +1,8 @@
 .main-board {
     width: 50%;
+    font-size: 5vw;
+    text-align: center;
+    color: #085992;
 
   &-cellContainer {
     display: flex;
@@ -7,6 +10,7 @@
     background-color: #085992;
     border: 0.3rem solid #085992;
     border-radius: 0.4rem;
+    margin-top: 1rem;
   }
 
   &-cell {

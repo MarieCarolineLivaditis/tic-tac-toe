@@ -60,6 +60,9 @@ function Board() {
     event.preventDefault();
     const targetId = Number(event.target.id);
     const square = board.find((item) => item.id === targetId);
+    if (winner) {
+      return;
+    }
     if (square.value === '' || square.value === undefined) {
       if (isX === true) {
         square.value = 'X';
@@ -88,7 +91,7 @@ function Board() {
       }
       return winner;
     });
-  }
+  };
 
   useEffect(() => {
     checkWinner();
@@ -97,6 +100,7 @@ function Board() {
 
   return (
     <div className="main-board">
+      {winner && 'Vous avez gagné !'}
       <div className="main-board-cellContainer">
         {board.map((item) => (
           <Cell
