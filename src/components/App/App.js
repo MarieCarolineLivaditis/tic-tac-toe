@@ -1,4 +1,5 @@
 import Board from '../Board/Board';
+import PlayAgainBtn from '../PlayAgainBtn/PlayAgainBtn';
 
 import './App.scss';
 
@@ -10,6 +11,7 @@ function App() {
       </header>
       <main className="App-main">
         <Board />
+        <PlayAgainBtn />
       </main>
     </div>
   );

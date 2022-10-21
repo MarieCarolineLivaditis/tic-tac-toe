@@ -6,14 +6,14 @@ import './Board.scss';
 
 function Board() {
   const winningPatterns = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
-    [3, 6, 9],
-    [1, 5, 9],
-    [3, 5, 7],
+    [0, 4, 8],
+    [2, 4, 6],
   ];
   const [board, setBoard] = useState([
     {
@@ -75,28 +75,19 @@ function Board() {
   };
 
   const checkWinner = () => {
-    let symbol;
-    if (!isX) {
-      symbol = 'X';
-    } else {
-      symbol = 'O';
-    }
-    const filteredValue = board.filter((item) => item.value === symbol);
-    console.log(filteredValue);
-    const filteredValueId = filteredValue.map((item) => item.id);
-    console.log(filteredValueId);
-    winningPatterns.filter((item) => {
-      if (JSON.stringify(filteredValueId) === JSON.stringify(item)) {
+    winningPatterns.map((item) => {
+      const [a, b, c] = item;
+      if ((board[a].value !== '' && board[a].value !== undefined) && board[a].value === board[b].value && board[a].value === board[c].value) {
+        console.log(board[a].value, board[b].value, board[b].value);
         setWinner(true);
       }
-      return winner;
+      return item;
     });
   };
 
   useEffect(() => {
     checkWinner();
   });
-  console.log(winner);
 
   return (
     <div className="main-board">

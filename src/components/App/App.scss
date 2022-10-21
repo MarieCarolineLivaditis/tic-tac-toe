@@ -1,9 +1,11 @@
+@use '../../styles/vars';
+
 .App {
 
     &-header-title {
         font-size: 4rem;
         text-align: center;
-        color: #0a7dce;
+        color: vars.$darkColor;
 
     }
     &-main {

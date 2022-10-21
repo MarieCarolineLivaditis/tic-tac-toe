@@ -1,22 +1,24 @@
+@use '../../styles/vars';
+
 .main-board {
     width: 50%;
     font-size: 5vw;
     text-align: center;
-    color: #085992;
+    color: vars.$darkColor;
 
   &-cellContainer {
     display: flex;
     flex-wrap: wrap;
-    background-color: #085992;
-    border: 0.3rem solid #085992;
+    background-color: vars.$darkColor;
+    border: 0.3rem solid vars.$darkColor;
     border-radius: 0.4rem;
     margin-top: 1rem;
   }
 
   &-cell {
     width: 33.33%;
-    background-color: #0a8ae6;
-    border: 0.2rem solid #085992;
+    background-color: vars.$baseColor;
+    border: 0.2rem solid vars.$darkColor;
     color: #fff;
     font-size: 10vw;
     font-weight: 700;
@@ -30,8 +32,12 @@
         padding-bottom: 100%;
       }
     
-    &.backgroundColor {
-      background-color: #e60a7f;
+    &.backgroundColorX {
+      background-color: vars.$reddish;
+    }
+
+    &.backgroundColorO {
+      background-color: vars.$lightColor;
     }
   }
 }
