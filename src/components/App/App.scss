@@ -6,13 +6,28 @@
         font-size: 4rem;
         text-align: center;
         color: vars.$darkColor;
-
-    }
+    }   
     &-main {
-        max-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        position: relative;
+
+        &-infoSection {
+            position: absolute;
+            margin-left: 3rem;
+        }
+        &-message {
+            font-size: 4vw;
+            color: vars.$darkColor;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &-boardSection {
+            max-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
+
+
 }

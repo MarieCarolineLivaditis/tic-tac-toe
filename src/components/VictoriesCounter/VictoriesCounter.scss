@@ -1,0 +1,6 @@
+@use '../../styles/vars';
+
+.counter {
+    font-size: 2vw;
+    color: vars.$darkColor;
+}
