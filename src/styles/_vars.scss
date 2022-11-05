@@ -4,4 +4,3 @@ $baseColor: #0a8ae6;
 $darkColor: (color.scale($baseColor, $lightness: -35%));
 $lightColor: (color.scale($baseColor, $lightness: 25%));
 $reddish: #e60a7f;
-$lightreddish: (color.scale($reddish, $lightness: -15%));
