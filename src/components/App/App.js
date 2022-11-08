@@ -59,7 +59,7 @@ function App() {
   const [winner, setWinner] = useState(false);
   const [counterX, setCounterX] = useState(0);
   const [counterO, setCounterO] = useState(0);
-  const [remaingTurns, setRemaingTurns] = useState(10);
+  const [remaingTurns, setRemaingTurns] = useState(11);
 
   const message = 'Bravo ! Vous avez gagné !';
 
