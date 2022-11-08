@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Board from '../Board/Board';
 import PlayAgainBtn from '../PlayAgainBtn/PlayAgainBtn';
-import VictoriesCounter from '../VictoriesCounter/VictoriesCounter';
+import WinCounter from '../WinCounter/WinCounter';
 
 import './App.scss';
 
@@ -59,6 +59,7 @@ function App() {
   const [winner, setWinner] = useState(false);
   const [counterX, setCounterX] = useState(0);
   const [counterO, setCounterO] = useState(0);
+  const [remaingTurns, setRemaingTurns] = useState(11);
 
   const message = 'Bravo ! Vous avez gagné !';
 
@@ -110,20 +111,24 @@ function App() {
     ]);
 
     setWinner(false);
+    setRemaingTurns(10);
   };
 
   const checkWinner = () => {
     winningPatterns.map((item) => {
       const [a, b, c] = item;
       if ((board[a].value !== '' && board[a].value !== undefined) && board[a].value === board[b].value && board[a].value === board[c].value) {
-        console.log(board[a].value, board[b].value, board[b].value);
         setWinner(true);
       }
-      return item;
+      return true;
     });
+    if (!winner) {
+      setRemaingTurns((oldRemainingTurns) => oldRemainingTurns - 1);
+      console.log(remaingTurns);
+    }
   };
 
-  const victories = () => {
+  const wins = () => {
     if (winner && !isX) {
       setCounterX((oldCounter) => oldCounter + 1);
     } if (winner && isX) {
@@ -133,10 +138,10 @@ function App() {
 
   useEffect(() => {
     checkWinner();
-  });
+  }, [board]);
 
   useEffect(() => {
-    victories();
+    wins();
   }, [winner]);
 
   return (
@@ -146,7 +151,7 @@ function App() {
       </header>
       <main className="App-main">
         <div className="App-main-infoSection">
-          <VictoriesCounter
+          <WinCounter
             counterX={counterX}
             counterO={counterO}
           />
@@ -164,7 +169,7 @@ function App() {
         </div>
         <div className="App-main-message">
           {winner && message}
-          {winner && <PlayAgainBtn resetGame={resetGame} />}
+          {(winner || remaingTurns === 0) && <PlayAgainBtn resetGame={resetGame} />}
         </div>
       </main>
     </div>

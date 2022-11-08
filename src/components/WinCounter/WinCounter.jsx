@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-import './VictoriesCounter.scss';
+import './WinCounter.scss';
 
-function VictoriesCounter({ counterX, counterO }) {
+function WinCounter({ counterX, counterO }) {
   return (
     <section className="counter">
       <h2>Victoires</h2>
@@ -16,8 +16,8 @@ function VictoriesCounter({ counterX, counterO }) {
   );
 }
 
-VictoriesCounter.propTypes = {
+WinCounter.propTypes = {
   counterX: PropTypes.number.isRequired,
   counterO: PropTypes.number.isRequired,
 };
-export default VictoriesCounter;
+export default WinCounter;
